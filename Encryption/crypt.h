@@ -15,7 +15,8 @@ public:
 	vector<int> fromFile; //the message
 	vector<int> decryptedMessage;
 	vector<int> encryptedMessage;
-	int e;        //set to 19 as the global rule -Tom we have it set to read in public key from inline parameters
+	//set to 19 as the global rule -Tom we have it set to read in public key from inline parameters
+	int pubKey; //Public key
 	void read(string fileName);  //read from a file
 	void encrypt(); //encryption with P and Q, print to standard out
 	void decrypt(); //decrypt method, print to standard out
@@ -23,7 +24,6 @@ public:
 	void printEncryptedMessage();
 	void printDecryptedMessage();
 protected:
-	int pubKey; //Public key
 	int priKey; //Private key
 private:
 	int p, q; // we need to set these here to our two three digit primes

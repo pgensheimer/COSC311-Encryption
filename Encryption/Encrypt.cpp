@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	fileName = argv[1];
 
 	Encrypt E;
-	E.e = atoi(argv[3]); //get the parameter to encrypt or decrypt
+	E.pubKey= atoi(argv[3]); //get the parameter to encrypt or decrypt
 	E.read(fileName);  //read the CSV file
 	
 
