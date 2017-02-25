@@ -19,8 +19,6 @@ int main(int argc, char** argv)
 		cout << "K: Public key to be entered" << endl;
 		exit(0);
 	}
-
-	int P = 1, Q = 1;
 	char Type;
 	string fileName;
 
