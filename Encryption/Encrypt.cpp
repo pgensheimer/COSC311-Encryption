@@ -1,15 +1,15 @@
 #include <cstdio>
 #include <iostream>
-#include <vector>
+#include <string>
 #include "crypt.h"
-#include <fstream> // open files
+
 
 using namespace std;
 
 int main(int argc, char** argv)
 {
 
-	if (argc < 5)  // take your filename.csv, action and public key
+	if (argc < 4)  // take your filename.csv, action and public key
 	{
 		cout << "Useage:encryption filename E|D K" << endl;
 		cout << "filename: This is a comma delimited file with the message in integers" << endl;
@@ -20,28 +20,25 @@ int main(int argc, char** argv)
 		exit(0);
 	}
 
-	int P, Q, public_key;
+	int P = 1, Q = 1;
 	char Type;
 	string fileName;
-	ifstream cvsFile;
 
 	Type = *argv[2];
-	//sscanf(argv[3], "%d", &P);
-	public_key = atoi(argv[3]);
-
+	fileName = argv[1];
 
 	Encrypt E;
-	E.e = public_key;
-	E.read(argv[1]);  //read the CSV file
-	if (Type == 'E')
-	{
+	E.e = atoi(argv[3]);
+	E.read(fileName);  //read the CSV file
+	
+	E.printMessage();
 
-		printf("Encrypting...\n");
+	if (Type == 'E') {
+		cout << "Encrypting..." << endl;
 		E.encrypt(P, Q);  //encrpyt the message
 	}
-	else
-	{
-		printf("Decrypting...\n");
+	else {
+		cout << "Decrypting..." << endl;
 		E.decrypt();  //decrypt the message
 	}
 }
