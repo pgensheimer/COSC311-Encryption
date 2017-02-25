@@ -28,17 +28,18 @@ int main(int argc, char** argv)
 	fileName = argv[1];
 
 	Encrypt E;
-	E.e = atoi(argv[3]);
+	E.e = atoi(argv[3]); //get the parameter to encrypt or decrypt
 	E.read(fileName);  //read the CSV file
 	
-	E.printMessage();
 
 	if (Type == 'E') {
 		cout << "Encrypting..." << endl;
-		E.encrypt(P, Q);  //encrpyt the message
+		E.encrypt();  //encrpyt the message
+		E.printEncryptedMessage();
 	}
 	else {
 		cout << "Decrypting..." << endl;
 		E.decrypt();  //decrypt the message
+		E.printDecryptedMessage();
 	}
 }

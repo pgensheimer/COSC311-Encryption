@@ -1,4 +1,2 @@
-﻿  crypt.cpp
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(35): warning C4018: '<': signed/unsigned mismatch
-  Encryption.vcxproj -> C:\Users\tkrob\Source\Repos\COSC311-Encryption\Encryption\Debug\Encryption.exe
+﻿  Encryption.vcxproj -> C:\Users\tkrob\Source\Repos\COSC311-Encryption\Encryption\Debug\Encryption.exe
   Encryption.vcxproj -> C:\Users\tkrob\Source\Repos\COSC311-Encryption\Encryption\Debug\Encryption.pdb (Partial PDB)
