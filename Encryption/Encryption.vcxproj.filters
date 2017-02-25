@@ -21,9 +21,15 @@
     <ClCompile Include="bigInt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="crypt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bigInt.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="crypt.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

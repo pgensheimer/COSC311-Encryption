@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bigInt.cpp" />
+    <ClCompile Include="crypt.cpp" />
     <ClCompile Include="Encrypt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bigInt.h" />
+    <ClInclude Include="crypt.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="readMe.txt" />
