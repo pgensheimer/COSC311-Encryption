@@ -19,10 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bigInt.cpp" />
+    <ClCompile Include="Encrypt.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bigInt.h" />
     <ClInclude Include="Source.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readMe.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{25AABD00-CCEB-41DB-803C-8DA1082EFD2B}</ProjectGuid>
