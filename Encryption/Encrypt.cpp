@@ -29,6 +29,8 @@ int main(int argc, char** argv)
 	E.pubKey= atoi(argv[3]); //get the parameter to encrypt or decrypt
 	E.read(fileName);  //read the CSV file
 	
+	//testing print incoming message
+	E.asciiMessage(E.fromFile);
 
 	if (Type == 'E') {
 		cout << "Encrypting..." << endl;

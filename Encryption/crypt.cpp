@@ -2,6 +2,7 @@
 
 Encrypt::Encrypt(void) {
 	//we need to create all of the key information when the class is constructed
+	//using 3 and 7 for testing right now
 	p = 3;
 	q = 7;
 	modulus = p*q;
@@ -38,7 +39,7 @@ void Encrypt::read(string fileName) {
 }
 
 void Encrypt::encrypt() {
-	long long int calc = 0;
+	unsigned long long int calc = 0;
 	for (int i = 0; i < fromFile.size(); ++i) {
 		calc = pow(fromFile[i], pubKey);
 		encryptedMessage.push_back(calc % modulus);
@@ -47,7 +48,7 @@ void Encrypt::encrypt() {
 }
 
 void Encrypt::decrypt() {
-	long long int calc = 0;
+	unsigned long long int calc = 0;
 	for (int i = 0; i < fromFile.size(); ++i) {
 		calc = pow(fromFile[i], priKey);
 		decryptedMessage.push_back(calc % modulus);
@@ -63,9 +64,42 @@ void Encrypt::printFileMessage() {
 void Encrypt::printEncryptedMessage() {
 	for (int i = 0; i < encryptedMessage.size(); ++i)
 		cout << encryptedMessage[i] << " ";
+	cout << endl;
+	saveMessageToFile(encryptedMessage);
 }
 
 void Encrypt::printDecryptedMessage() {
 	for (int i = 0; i < decryptedMessage.size(); ++i)
 		cout << decryptedMessage[i] << " ";
+	cout << endl;
+	asciiMessage(decryptedMessage);
+	//saveMessageToFile(decryptedMessage);
+}
+
+void Encrypt::saveMessageToFile(vector<int> saveMessage) {
+	ofstream out;
+	string filename;
+
+	do{
+		cout << "What file would you like to save to?" << endl;
+		//cin.ignore();
+		getline(cin, filename);
+		out.open(filename.c_str());
+	}while(!out.is_open());
+
+	for (int i = 0; i < saveMessage.size(); ++i) {
+		if (i == saveMessage.size() - 1)
+			out << saveMessage[i];
+		else
+			out << saveMessage[i] << ",";
+
+	}
+
+	out.close();
+}
+
+void Encrypt::asciiMessage(vector<int> translateMessage) {
+	for (int i = 0; i < translateMessage.size(); ++i)
+		cout << (char)translateMessage[i];
+	cout << endl;
 }

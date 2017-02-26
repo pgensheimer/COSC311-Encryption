@@ -23,6 +23,8 @@ public:
 	void printFileMessage();
 	void printEncryptedMessage();
 	void printDecryptedMessage();
+	void saveMessageToFile(vector<int> saveMessage);
+	void asciiMessage(vector<int> translateMessage);
 protected:
 	int priKey; //Private key
 private:
