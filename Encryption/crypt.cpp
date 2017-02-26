@@ -3,24 +3,36 @@
 Encrypt::Encrypt(void) {
 	//we need to create all of the key information when the class is constructed
 	//using 3 and 7 for testing right now
-	p = 3;
-	q = 7;
+	p = 313;
+	q = 733;
 	modulus = p*q;
 	totient = (p - 1)*(q - 1);
 	//we need code here to get the private key
 	// public key * private key = 1 mod totient like the example
-	priKey = gcd(pubKey, totient);
+	priKey = gcdExtended(pubKey, totient, &x, &y);
 }
 
-int Encrypt::gcd(int pk, int tot) {
-	int pvt = 1;
-	for (int i = 1; i < pk; i++){
-		if ((i * tot) % pk == 1){
-			pvt = i;
-			break;
-		}
+// C function for extended Euclidean Algorithm
+//http://www.geeksforgeeks.org/basic-and-extended-euclidean-algorithms/
+int Encrypt::gcdExtended(int a, int b, int *x, int *y)
+{
+	// Base Case
+	if (a == 0)
+	{
+		*x = 0;
+		*y = 1;
+		return b;
 	}
-	return pvt;
+
+	int x1, y1; // To store results of recursive call
+	int gcd = gcdExtended(b%a, a, &x1, &y1);
+
+	// Update x and y using results of recursive
+	// call
+	*x = y1 - (b / a) * x1;
+	*y = x1;
+
+	return gcd;
 }
 
 void Encrypt::read(string fileName) {
@@ -63,50 +75,34 @@ void Encrypt::decrypt() {
 
 }
 
-void Encrypt::printFileMessage() {
-	for (int i = 0; i < fromFile.size(); ++i)
-		cout << fromFile[i] << " ";
+void Encrypt::printDecMessage(vector<int> passedMessage) {
+	for (int i = 0; i < passedMessage.size(); ++i)
+		cout << passedMessage[i] << " ";
+	cout << endl;
 }
 
-void Encrypt::printEncryptedMessage() {
-	for (int i = 0; i < encryptedMessage.size(); ++i)
-		cout << encryptedMessage[i] << " ";
+void Encrypt::printASCIIMessage(vector<int> passedMessage) {
+	for (int i = 0; i < passedMessage.size(); ++i)
+		cout << (char)passedMessage[i];
 	cout << endl;
-	saveMessageToFile(encryptedMessage);
-}
-
-void Encrypt::printDecryptedMessage() {
-	for (int i = 0; i < decryptedMessage.size(); ++i)
-		cout << decryptedMessage[i] << " ";
-	cout << endl;
-	asciiMessage(decryptedMessage);
-	//saveMessageToFile(decryptedMessage);
 }
 
 void Encrypt::saveMessageToFile(vector<int> saveMessage) {
 	ofstream out;
 	string filename;
 
-	do{
+	do {
 		cout << "What file would you like to save to?" << endl;
 		//cin.ignore();
 		getline(cin, filename);
 		out.open(filename.c_str());
-	}while(!out.is_open());
+	} while (!out.is_open());
 
 	for (int i = 0; i < saveMessage.size(); ++i) {
 		if (i == saveMessage.size() - 1)
 			out << saveMessage[i];
 		else
 			out << saveMessage[i] << ",";
-
 	}
-
 	out.close();
-}
-
-void Encrypt::asciiMessage(vector<int> translateMessage) {
-	for (int i = 0; i < translateMessage.size(); ++i)
-		cout << (char)translateMessage[i];
-	cout << endl;
 }

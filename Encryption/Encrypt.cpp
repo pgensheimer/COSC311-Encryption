@@ -28,17 +28,22 @@ int main(int argc, char** argv)
 	Encrypt E;
 	E.pubKey= atoi(argv[3]); //get the parameter to encrypt or decrypt
 	E.read(fileName);  //read the CSV file
+	cout << "Private key for testing " << E.priKey << endl;
+	cout << "Public key for testing " << E.pubKey << endl;
 	
 
 	if (Type == 'E') {
 		cout << "Encrypting the following message..." << endl;
-		E.asciiMessage(E.fromFile);
+		E.printASCIIMessage(E.fromFile);
 		E.encrypt();  //encrpyt the message
-		E.printEncryptedMessage();
+		E.printDecMessage(E.encryptedMessage);
+		E.saveMessageToFile(E.encryptedMessage);
 	}
-	else {
-		cout << "Decrypting..." << endl;
+	if (Type =='D') {
+		cout << "Decrypting the following code..." << endl;
+		E.printDecMessage(E.fromFile);
 		E.decrypt();  //decrypt the message
-		E.printDecryptedMessage();
+		E.printDecMessage(E.decryptedMessage);
+		E.printASCIIMessage(E.decryptedMessage);
 	}
 }

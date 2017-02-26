@@ -20,16 +20,14 @@ public:
 	void read(string fileName);  //read from a file
 	void encrypt(); //encryption with P and Q, print to standard out
 	void decrypt(); //decrypt method, print to standard out
-	void printFileMessage();
-	void printEncryptedMessage();
-	void printDecryptedMessage();
+	void printDecMessage(vector<int> passedMessage);
+	void printASCIIMessage(vector<int> passedMessage);
 	void saveMessageToFile(vector<int> saveMessage);
-	void asciiMessage(vector<int> translateMessage);
-protected:
-	int priKey; //Private key
+	int priKey; //Private key we need to move this to private after testing
 private:
 	int p, q; // we need to set these here to our two three digit primes
+	int x, y; //for extended gcd only
 	int modulus;
 	int totient;
-	int gcd(int pk, int tot); // with help from http://codereview.stackexchange.com/questions/66711/greatest-common-divisor
+	int gcdExtended(int a, int b, int *x, int *y);
 };
