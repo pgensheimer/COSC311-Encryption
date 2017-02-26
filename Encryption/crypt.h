@@ -25,7 +25,7 @@ public:
 	void saveMessageToFile(vector<int> saveMessage);
 	int priKey; //Private key we need to move this to private after testing
 private:
-	int p, q; // we need to set these here to our two three digit primes
+	int p = 883, q = 941; // we need to set these here to our two three digit primes
 	int x, y; //for extended gcd only
 	int modulus;
 	int totient;
