@@ -12,8 +12,15 @@ Encrypt::Encrypt(void) {
 	priKey = gcd(pubKey, totient);
 }
 
-int Encrypt::gcd(int a, int b) {
-	return b == 0 ? a : gcd(b, a % b);
+int Encrypt::gcd(int pk, int tot) {
+	int pvt = 1;
+	for (int i = 1; i < pk; i++){
+		if ((i * tot) % pk == 1){
+			pvt = i;
+			break;
+		}
+	}
+	return pvt;
 }
 
 void Encrypt::read(string fileName) {

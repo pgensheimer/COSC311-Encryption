@@ -31,5 +31,5 @@ private:
 	int p, q; // we need to set these here to our two three digit primes
 	int modulus;
 	int totient;
-	int gcd(int a, int b); // with help from http://codereview.stackexchange.com/questions/66711/greatest-common-divisor
+	int gcd(int pk, int tot); // with help from http://codereview.stackexchange.com/questions/66711/greatest-common-divisor
 };

@@ -1,12 +1,3 @@
-﻿  crypt.cpp
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(43): warning C4018: '<': signed/unsigned mismatch
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(44): warning C4244: '=': conversion from 'double' to 'unsigned __int64', possible loss of data
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(52): warning C4018: '<': signed/unsigned mismatch
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(53): warning C4244: '=': conversion from 'double' to 'unsigned __int64', possible loss of data
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(60): warning C4018: '<': signed/unsigned mismatch
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(65): warning C4018: '<': signed/unsigned mismatch
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(72): warning C4018: '<': signed/unsigned mismatch
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(90): warning C4018: '<': signed/unsigned mismatch
-c:\users\tkrob\source\repos\cosc311-encryption\encryption\crypt.cpp(102): warning C4018: '<': signed/unsigned mismatch
+﻿  Encrypt.cpp
   Encryption.vcxproj -> C:\Users\tkrob\Source\Repos\COSC311-Encryption\Encryption\Debug\Encryption.exe
   Encryption.vcxproj -> C:\Users\tkrob\Source\Repos\COSC311-Encryption\Encryption\Debug\Encryption.pdb (Partial PDB)
